@@ -62,3 +62,63 @@ rest-taskmanager/
 │       └── java/com/dhlal/
 └── target/                          # Build output
 ```
+## Technologies Used
+
+- Java 17+
+- Spring Boot
+- Spring Security (JWT)
+- Spring Data JPA
+- PostgreSQL
+- Maven
+- OpenAPI (Swagger via springdoc-openapi)
+- Docker & Docker Compose
+
+## Getting Started
+
+### Prerequisites
+
+- Java 17+
+- Maven 3.6+
+- Docker & Docker Compose
+
+### Configuration
+
+Edit `src/main/resources/application.yml` or `application.properties` to set database and JWT properties as needed.
+
+### Running with Docker Compose (Local PostgreSQL)
+
+This will start both the API and a local PostgreSQL instance.
+
+```bash
+docker-compose -f docker-compose-local.yml up --build
+```
+- API: http://localhost:8080
+- PostgreSQL: localhost:5432 (default user/password as set in the compose file)
+
+### Running with Docker Compose (Remote PostgreSQL)
+If you have a remote PostgreSQL instance, configure its credentials in docker-compose.yml and run:
+```bash
+docker-compose up --build
+```
+### Running Locally (Without Docker)
+ Start your PostgreSQL server and update DB credentials in application.yml or application.properties.
+- Build and run the app:
+```bash
+mvn clean install
+mvn spring-boot:run
+```
+### API Documentation
+ Swagger UI is available at:
+
+- http://localhost:8080/swagger-ui.html
+- or http://localhost:8080/swagger-ui/index.html
+### Security
+ All /api/** endpoints are secured with JWT. Add the following header to your requests:
+ ```bash
+Authorization: Bearer <your-jwt-token>
+```
+### License
+ This project is licensed under the MIT License.
+```bash
+Replace `<your-jwt-token>` with a valid token when making requests. Update the license section as appropriate for your project.
+```
