@@ -13,6 +13,7 @@ A robust Spring Boot RESTful API for managing tasks, featuring JWT authenticatio
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Configuration](#configuration)
+  - [Environment Variables](#environment-variables)
   - [Running with Docker Compose (Local PostgreSQL)](#running-with-docker-compose-local-postgresql)
   - [Running with Docker Compose (Remote PostgreSQL)](#running-with-docker-compose-remote-postgresql)
   - [Running Locally (Without Docker)](#running-locally-without-docker)
@@ -84,7 +85,18 @@ rest-taskmanager/
 ### Configuration
 
 Edit `src/main/resources/application.yml` or `application.properties` to set database and JWT properties as needed.
+### Environment Variables
 
+Before running with Docker Compose, create a `.env` file in the project root. This file should contain your database and application configuration. Example:
+
+```dotenv
+DB_HOST=your_postgres_host
+DB_NAME=your_database_name
+DB_USERNAME=your_database_user
+DB_PASSWORD=your_database_password
+SPRING_PROFILES_ACTIVE=dev
+SERVER_PORT=8080
+```
 ### Running with Docker Compose (Local PostgreSQL)
 
 This will start both the API and a local PostgreSQL instance.
