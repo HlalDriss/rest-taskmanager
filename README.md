@@ -1,52 +1,64 @@
-# 📝 Task Manager REST API (Spring Boot + JWT + Docker)
+# Task Manager API
 
-A secure task management REST API built with Spring Boot 3, JWT authentication, PostgreSQL, Docker, and Swagger. Designed for clean code, portability, and DevOps deployment — ideal for full-stack integration or microservices.
-
----
-
-## 📌 Features
-
-✅ User Registration & Login  
-✅ JWT Authentication (Stateless)  
-✅ Task CRUD for Authenticated Users  
-✅ Swagger UI for Documentation  
-✅ PostgreSQL Integration  
-✅ Dockerized Environment  
-✅ Unit & Integration Testing with JUnit & Mockito  
+A robust Spring Boot RESTful API for managing tasks, featuring JWT authentication, OpenAPI documentation, and Dockerized deployment with PostgreSQL support.
 
 ---
 
-## 🚀 Technologies Used
+## Table of Contents
 
-- **Java 17**, **Spring Boot 3**
-- **Spring Security**, **JWT**
-- **PostgreSQL**, **Spring Data JPA**
-- **Docker** & **Docker Compose**
-- **Swagger / OpenAPI**
-- **JUnit 5**, **Mockito**
-
----
-
-## 🛠️ Running Locally
-
-### 🔧 Requirements
-
-- Java 17+
-- Maven
-- Docker (for containerized setup)
+- [Project Goals](#project-goals)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Configuration](#configuration)
+  - [Running with Docker Compose (Local PostgreSQL)](#running-with-docker-compose-local-postgresql)
+  - [Running with Docker Compose (Remote PostgreSQL)](#running-with-docker-compose-remote-postgresql)
+  - [Running Locally (Without Docker)](#running-locally-without-docker)
+- [API Documentation](#api-documentation)
+- [Security](#security)
+- [License](#license)
 
 ---
 
-### ✅ Option 1: Run with Docker (recommended)
+## Project Goals
 
-```bash
-# Build and run all services
-docker-compose up --build
-API: http://localhost:8080
-Swagger: http://localhost:8080/swagger-ui/index.html
+- Provide a secure, scalable REST API for task management.
+- Enable easy integration and documentation via OpenAPI (Swagger).
+- Support containerized deployment for local and production environments.
 
-POST /api/auth/register
-{
-  "email": "test@example.com",
-  "password": "123456"
-}
+## Features
+
+- CRUD operations for tasks
+- JWT-based authentication and authorization
+- Grouped API endpoints under `/api/**`
+- OpenAPI 3.0 documentation (Swagger UI)
+- Dockerized deployment with PostgreSQL support
+
+## Project Structure
+```
+rest-taskmanager/
+├── docker-compose-local.yml         # Docker Compose for local PostgreSQL
+├── docker-compose.yml               # Docker Compose for remote PostgreSQL
+├── Dockerfile                       # Dockerfile for building the app image
+├── pom.xml                          # Maven build file
+├── src/
+│   ├── main/
+│   │   ├── java/com/dhlal/
+│   │   │   └── resttaskmanager/
+│   │   │       ├── config/          # Configuration classes (OpenAPI, Security, etc.)
+│   │   │       ├── controller/      # REST controllers
+│   │   │       ├── model/           # Entity and DTO classes
+│   │   │       ├── repository/      # Spring Data JPA repositories
+│   │   │       ├── service/         # Business logic
+│   │   │       └── ResttaskmanagerApplication.java  # Main entry point
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       ├── application.yml
+│   │       ├── static/
+│   │       └── templates/
+│   └── test/
+│       └── java/com/dhlal/
+└── target/                          # Build output
+```
