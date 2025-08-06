@@ -1,5 +1,6 @@
 package com.dhlal.resttaskmanager.config;
 
+import io.swagger.v3.oas.annotations.servers.Server;
 import io.swagger.v3.oas.models.*;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
@@ -13,6 +14,7 @@ public class OpenApiConfig {
     @Bean
     public OpenAPI taskApiDoc() {
         return new OpenAPI()
+                .addServersItem(new io.swagger.v3.oas.models.servers.Server().url("/"))
                 .info(new Info()
                         .title("Task Manager API")
                         .description("Spring Boot REST API with JWT Authentication")
@@ -33,4 +35,6 @@ public class OpenApiConfig {
                 .pathsToMatch("/api/**")
                 .build();
     }
+
+
 }
