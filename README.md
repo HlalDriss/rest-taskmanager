@@ -1,42 +1,52 @@
-rest-taskmanager/
-│
-├── src/
-│   ├── main/
-│   │   ├── java/com/driss/taskmanager/
-│   │   │   ├── controller/
-│   │   │   │   ├── AuthController.java
-│   │   │   │   └── TaskController.java
-│   │   │   ├── config/
-│   │   │   │   └── OpenApiConfig.java
-│   │   │   ├── dto/
-│   │   │   │   ├── AuthRequest.java
-│   │   │   │   ├── TaskRequest.java
-│   │   │   │   └── TaskResponse.java
-│   │   │   ├── model/
-│   │   │   │   ├── Task.java
-│   │   │   │   └── User.java
-│   │   │   ├── repository/
-│   │   │   │   ├── TaskRepository.java
-│   │   │   │   └── UserRepository.java
-│   │   │   ├── security/
-│   │   │   │   ├── JwtFilter.java
-│   │   │   │   ├── JwtUtil.java
-│   │   │   │   ├── SecurityConfig.java
-│   │   │   │   └── CustomUserDetailsService.java
-│   │   │   ├── service/
-│   │   │   │   └── TaskService.java
-│   │   │   └── RestTaskmanagerApplication.java
-│   │   └── resources/
-│   │       ├── application.yml
-│   │       └── application-docker.yml (optional)
-│   └── test/java/com/driss/taskmanager/
-│       ├── controller/
-│       │   ├── AuthControllerTest.java
-│       │   └── TaskControllerTest.java
-│       └── service/
-│           └── TaskServiceTest.java
-│
-├── Dockerfile
-├── docker-compose.yml
-├── pom.xml
-└── README.md  ← (we’ll write this now)
+# 📝 Task Manager REST API (Spring Boot + JWT + Docker)
+
+A secure task management REST API built with Spring Boot 3, JWT authentication, PostgreSQL, Docker, and Swagger. Designed for clean code, portability, and DevOps deployment — ideal for full-stack integration or microservices.
+
+---
+
+## 📌 Features
+
+✅ User Registration & Login  
+✅ JWT Authentication (Stateless)  
+✅ Task CRUD for Authenticated Users  
+✅ Swagger UI for Documentation  
+✅ PostgreSQL Integration  
+✅ Dockerized Environment  
+✅ Unit & Integration Testing with JUnit & Mockito  
+
+---
+
+## 🚀 Technologies Used
+
+- **Java 17**, **Spring Boot 3**
+- **Spring Security**, **JWT**
+- **PostgreSQL**, **Spring Data JPA**
+- **Docker** & **Docker Compose**
+- **Swagger / OpenAPI**
+- **JUnit 5**, **Mockito**
+
+---
+
+## 🛠️ Running Locally
+
+### 🔧 Requirements
+
+- Java 17+
+- Maven
+- Docker (for containerized setup)
+
+---
+
+### ✅ Option 1: Run with Docker (recommended)
+
+```bash
+# Build and run all services
+docker-compose up --build
+API: http://localhost:8080
+Swagger: http://localhost:8080/swagger-ui/index.html
+
+POST /api/auth/register
+{
+  "email": "test@example.com",
+  "password": "123456"
+}
