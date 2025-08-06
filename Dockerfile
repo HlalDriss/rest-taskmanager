@@ -1,8 +1,9 @@
 # Stage 1: Build the WAR file using Maven
 FROM maven:3.9.6-eclipse-temurin-17 AS builder
 WORKDIR /app
-COPY . .
-RUN mvn clean package -DskipTests
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests --batch-mode
 
 # Stage 2: Deploy WAR to Tomcat
 FROM tomcat:10.1-jdk17-temurin
